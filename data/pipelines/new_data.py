@@ -1,6 +1,7 @@
 from urllib import request, parse
 import json
 import re
+import pandas as pd
 import sys
 
 # API
@@ -33,14 +34,14 @@ def generate_endpoint(term, subject, number):
     return UW_API_URL + "level=under" + "&sess=" + str(term) + "&subject=" + subject + "&cournum=" + str(number)
 
 # Takes the raw HTML Response from the UW Course API endpoint
-# and returns None or a JSON structure representing the query result
+# and returns None or a pandas dataframe representing the query result
 # Parameters:
-# raw_json - JSON object
+# raw_json - str
 # Output:
-# None
-# set of dictionaries
+# None or pandas dataframe
 def parse_response(raw_html):
 
     # Invalid query
     if re.findall(INVALID_MATCH, raw_html) != []: return None
 
+    return pd.read_html(raw_html)[1].transpose()

@@ -2,8 +2,8 @@ from data.pipelines.new_data import *
 import sys
 
 TEST_FILE_PATH = "./test_data/cron.log"
-TEST_SUBJECT = "CO"
-TEST_NUMBER = 250
+TEST_SUBJECT = "MATH"
+TEST_NUMBER = 135
 DEFAULT_ENCODING = "utf-8"
 
 def trigger_endpoint():
@@ -15,7 +15,7 @@ def write_test_result(data, local_file_path, formatted=True):
     f.close()
 
 def run_test():
-    write_test_result(trigger_endpoint(), TEST_FILE_PATH)
+    write_test_result(str(parse_response(trigger_endpoint())), TEST_FILE_PATH)
 
 def main(argv):
     run_test()
