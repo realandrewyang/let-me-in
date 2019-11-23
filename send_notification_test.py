@@ -4,7 +4,7 @@ from auth.contact import PHONE_NUMBER
 import sys
 
 TEST_MESSAGE = "CO 250: 2 spots open!"
-VALID_RESULT = {"SendMessageWithReferenceREsult": "Message queued successfully"}
+VALID_RESULT = {"SendMessageWithReferenceResult": "Message queued successfully"}
 
 def run_test():
     return send_notification(
