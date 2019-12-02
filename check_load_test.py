@@ -17,9 +17,9 @@ VALID_RESULT = {"SendMessageWithReferenceResult": "Message queued successfully"}
 def check_prev_status(local_file_path):
     temp = -1
     f = open(local_file_path, "r")
-    f.read(temp)
+    temp = int(f.read(1))
     f.close()
-    return int(temp)
+    return temp
 
 # Update status to file
 def write_status(local_file_path, status):
