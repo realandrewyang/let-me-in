@@ -34,6 +34,8 @@ def valid_course(course_info):
 def remove_course(data, key, value):
     try:
         data.drop(data.index[data[key] == value], inplace = True)
+    except KeyError:
+        return data
     return data
 
 

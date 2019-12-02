@@ -17,7 +17,10 @@ VALID_RESULT = {"SendMessageWithReferenceResult": "Message queued successfully"}
 def check_prev_status(local_file_path):
     temp = -1
     f = open(local_file_path, "r")
-    temp = int(f.read(1))
+    try:
+        temp = int(f.read(1))
+    except ValueError:
+        temp = -1
     f.close()
     return temp
 
@@ -27,24 +30,11 @@ def write_status(local_file_path, status):
     f.write(str(status))
     f.close()
 
-def run_test():
-
-    # Get state
-    status = check_course(
-        parse_response(
-            get_endpoint(
-                generate_endpoint(
-                    WINTER_2020,
-                    TEST_SUBJECT,
-                    TEST_NUMBER
-                )
-            )
-        ),
-        TEST_COURSE_ID
-    )
+# Takes in a status and reacts accordingly
+def handle_status(status):
 
     # Don't send notification if status hasn't changed
-    if status[0] == check_prev_status(TEST_STATUS_FILE_PATH): return
+    if status[0] == check_prev_status(TEST_STATUS_FILE_PATH): return None
 
     # Update state
     write_status(TEST_STATUS_FILE_PATH, status[0])
@@ -62,6 +52,22 @@ def run_test():
             )
         )
     return None
+
+def run_test():
+    return handle_status(
+        check_course(
+            parse_response(
+                get_endpoint(
+                    generate_endpoint(
+                        WINTER_2020,
+                        TEST_SUBJECT,
+                        TEST_NUMBER
+                    )
+                )
+            ),
+            TEST_COURSE_ID
+        )
+    )
 
 def main(argv):
     run_test()
