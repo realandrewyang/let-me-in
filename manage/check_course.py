@@ -15,6 +15,11 @@ COURSE_SCHEMA = ["Term", "Course ID", "Subject", "Number"]
 def read_courses(local_file_path, schema = COURSE_SCHEMA):
     return pd.read_csv(local_file_path, names = schema)
 
+def write_courses(data, local_file_path):
+    f = open(local_file_path, "w")
+    f.write(data.to_csv(index=False)
+    f.close()
+
 # Takes in a row of a pandas dataframe and checks if the course still exists
 # Parameters:
 # course_info: pandas dataframe row
@@ -37,5 +42,3 @@ def remove_course(data, key, value):
     except KeyError:
         return data
     return data
-
-
