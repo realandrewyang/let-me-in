@@ -3,7 +3,7 @@ from auth.key import *
 from auth.contact import PHONE_NUMBER
 import sys
 
-TEST_MESSAGE = "CO 250: 2 spots open!"
+TEST_MESSAGE = "CS 341: 2 spots open!"
 VALID_RESULT = {"SendMessageWithReferenceResult": "Message queued successfully"}
 
 def run_test():

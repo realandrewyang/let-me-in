@@ -5,10 +5,10 @@ from data.pipelines.notify import *
 from core.check_load import *
 import sys
 
-TEST_COURSE_ID = 7667
-TEST_COURSE_NAME = "CO 250"
-TEST_SUBJECT = "CO"
-TEST_NUMBER = 250
+TEST_COURSE_ID = 6047
+TEST_COURSE_NAME = "CS 341"
+TEST_SUBJECT = "CS"
+TEST_NUMBER = 341
 TEST_STATE = OPEN
 TEST_STATUS_FILE_PATH = "./test_data/state.txt"
 VALID_RESULT = {"SendMessageWithReferenceResult": "Message queued successfully"}

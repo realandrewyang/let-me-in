@@ -8,7 +8,7 @@ import sys
 UW_API_URL = "http://www.adm.uwaterloo.ca/cgi-bin/cgiwrap/infocour/salook.pl/?"
 
 # Term enums
-WINTER_2020 = 1201
+WINTER_2020 = 1209
 
 # Regex for response parsing
 INVALID_MATCH = "((query had no matches)|(Please return to))"

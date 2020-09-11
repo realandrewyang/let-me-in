@@ -29,7 +29,7 @@ def check_course_core(course, course_id):
 # List[enum, int]
 def check_course(d, course_id):
     try:
-        return check_course_core(d.loc[d["Class"] == np.int64(course_id)], np.int64(course_id))
+        return check_course_core(d.loc[d["Class"] == str(course_id)], np.int64(course_id))
     except KeyError:
         return [NOT_FOUND, 0]
 
