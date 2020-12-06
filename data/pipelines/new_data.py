@@ -5,7 +5,7 @@ import pandas as pd
 import sys
 
 # API
-UW_API_URL = "http://www.adm.uwaterloo.ca/cgi-bin/cgiwrap/infocour/salook.pl/?"
+UW_API_URL = "https://classes.uwaterloo.ca/cgi-bin/cgiwrap/infocour/salook.pl"
 
 # Term enums
 WINTER_2020 = 1209
